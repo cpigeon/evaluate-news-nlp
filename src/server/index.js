@@ -1,3 +1,7 @@
+var textapi = new meaningCloud({
+  application_key: "8f6b720ef736a1e69ffc640bdbd33ab7"
+});
+
 var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
