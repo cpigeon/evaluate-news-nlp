@@ -1,5 +1,8 @@
+const dotenv = require('dotenv');
+dotenv.config()
+
 var textapi = new meaningCloud({
-  application_key: "8f6b720ef736a1e69ffc640bdbd33ab7"
+  application_key: "process.env.API_KEY"
 });
 
 var path = require('path')
