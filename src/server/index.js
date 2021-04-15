@@ -11,7 +11,7 @@ const dotenv = require('dotenv');
 dotenv.config()
 
 var textapi = new MeaningCloud({
-  application_key: "process.env.API_KEY"
+  key: "process.env.API_KEY"
 });
 
 console.log(__dirname)
