@@ -10,7 +10,7 @@ app.use(express.static('dist'))
 const dotenv = require('dotenv');
 dotenv.config()
 
-var textapi = new meaningCloud({
+var textapi = new MeaningCloud({
   application_key: "process.env.API_KEY"
 });
 
