@@ -5,6 +5,14 @@ const MeaningCloud = require('meaning-cloud');
 
 const app = express()
 
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Cors for cross origin allowance
+const cors = require('cors');
+app.use(cors());
+
 app.use(express.static('dist'))
 
 const dotenv = require('dotenv');
