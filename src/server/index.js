@@ -21,6 +21,7 @@ dotenv.config()
 var textapi = new MeaningCloud({
   key: "process.env.API_KEY"
 });
+const baseURL = "https://api.meaningcloud.com/sentiment-2.1?key=";
 
 console.log(__dirname)
 
@@ -34,6 +35,21 @@ app.listen(8081, function () {
     console.log('Example app listening on port 8081!')
 })
 
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
-})
+// app.get('/test', function (req, res) {
+//     res.send(mockAPIResponse)
+// })
+
+app.post("/test", async(req,req) => {
+  console.log(req.body.formURL)
+  const apiData = await fetch(baseURL+textapi.key+'&lang=en&txt='+req.body.formURL, {
+    method: 'POST'
+  });
+
+  try {
+    const data = await apiData.json()
+    console.log('apiData +++++> ', data)
+    res.send(data);
+  } catch (err) {
+    console.log("error", err)
+  }
+});
