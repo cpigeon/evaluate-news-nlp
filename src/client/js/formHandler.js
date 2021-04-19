@@ -1,16 +1,16 @@
 function handleSubmit(event) {
+    // prevents website from reloading when user clicks 'submit'
     event.preventDefault()
 
-    // check what text was put into the form field
-    let formText = document.getElementById('name').value
-    Client.checkForName(formText)
+    // save entered URL into a variable
+    let formURL = document.getElementById('url').value
+    Client.checkURL(formURL)
 
-    console.log("::: Form Submitted :::")
-    fetch('http://localhost:8081/test')
-    .then(res => res.json())
-    .then(function(res) {
-        document.getElementById('results').innerHTML = res.message
-    })
+    // fetch('http://localhost:8081/test')
+    // .then(res => res.json())
+    // .then(function(res) {
+    //     document.getElementById('results').innerHTML = res.message
+    // })
 }
 
 export { handleSubmit }
