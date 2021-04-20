@@ -40,7 +40,7 @@ app.listen(8081, function () {
 //     res.send(mockAPIResponse)
 // })
 
-app.post("/test", async(req,req) => {
+app.post("/test", async(req,res) => {
   console.log(req.body.formURL)
   const apiData = await fetch(baseURL+process.env.API_KEY+'&lang=en&txt='+req.body.formURL, {
     method: 'POST'
