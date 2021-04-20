@@ -42,7 +42,7 @@ app.listen(8081, function () {
 
 app.post("/test", async(req,req) => {
   console.log(req.body.formURL)
-  const apiData = await fetch(baseURL+textapi.key+'&lang=en&txt='+req.body.formURL, {
+  const apiData = await fetch(baseURL+process.env.API_KEY+'&lang=en&txt='+req.body.formURL, {
     method: 'POST'
   });
 
