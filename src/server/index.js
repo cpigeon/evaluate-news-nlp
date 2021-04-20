@@ -2,6 +2,7 @@ var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
 const MeaningCloud = require('meaning-cloud');
+const fetch = require('node-fetch')
 
 const app = express()
 
