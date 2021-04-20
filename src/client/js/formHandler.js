@@ -36,14 +36,14 @@ function handleSubmit(event) {
     //     console.log(res.message)
     // })
 
-    fetch("http://localhost:8080/test", {
+    fetch("http://localhost:8081/test", {
             method: "POST",
             cache: "no-cache",
             credentials: "same-origin",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(formURL),
+            body: JSON.stringify({formURL}),
         })
         .then((res) => res.json())
         // .then((res) => {
