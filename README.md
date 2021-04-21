@@ -52,7 +52,6 @@ Complete the following steps to get up and running:
 - Change the port # in server/index.js to match the port # from the previous step
 - Setup webpack for production (optimize/minify)
 
-
 ### Setting up the MeaningCloud API
 
 #### Step 1: Signup for an API key
@@ -95,6 +94,15 @@ var textapi = new MeaningCloud({
 #### Step 5: Using the API
 
 - Once the user submits the URL, send it through the URL Checker
-- If a valid URL was submitted, send a post request from the client to the server with the URL 
+- If a valid URL was submitted, send a post request from the client to the server with the URL
 - Send a post request from the server to the API (using node-fetch & cors)
 - Update index.html with the API result
+
+### Setting up Jest
+Jest is a framework for testing JavaScript projects. Jest is used in this project to write tests to check if the functions authored in src/client/js are behaving as anticipated.
+
+Complete the following steps to get Jest up and running:
+- Install jest using npm
+- Write custom tests in testFormHandler.spec.js & testURLChecker.spec.js
+- Configure an npm script named "test" in package.json to run tests from the command line
+- Run "npm run test" to test 
