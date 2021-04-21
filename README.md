@@ -105,4 +105,10 @@ Complete the following steps to get Jest up and running:
 - Install jest using npm
 - Write custom tests in testFormHandler.spec.js & testURLChecker.spec.js
 - Configure an npm script named "test" in package.json to run tests from the command line
-- Run "npm run test" to test 
+- Run "npm run test" to test
+
+### Setting up Service Workers
+Complete the following steps to get Service Workers up and running:
+- Install the plugin (workbox-webpack-plugin) on the command line using npm
+- Require & instantiate the plugin in webpack.prod.js
+- Register a service worker in src/client/views/index.html
