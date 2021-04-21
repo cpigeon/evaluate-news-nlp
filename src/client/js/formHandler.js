@@ -6,6 +6,7 @@ function handleSubmit(event) {
     const formURL = document.getElementById('url').value;
     Client.checkURL(formURL);
 
+    // post request to server
     fetch("http://localhost:8081/test", {
             method: "POST",
             cache: "no-cache",
@@ -21,6 +22,7 @@ function handleSubmit(event) {
         })
 }
 
+// function to update the web app with the data from the API
 const updateUI = async (res) => {
   console.log(res);
   document.getElementById('results').insertAdjacentHTML('beforeend', "Website: " + res.sentimented_entity_list[0].form);

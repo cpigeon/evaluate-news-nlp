@@ -8,6 +8,7 @@ function checkURL(inputText) {
       '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
       '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
 
+      // send an alert if the user did not enter a valid URL
       if (!pattern.test(inputText)) {
         alert("User did not enter a valid URL");
       }

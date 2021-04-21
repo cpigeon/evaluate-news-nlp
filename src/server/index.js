@@ -4,24 +4,28 @@ const mockAPIResponse = require('./mockAPI.js');
 const MeaningCloud = require('meaning-cloud');
 const fetch = require('node-fetch');
 
+// Instantiate web app
 const app = express();
 
+// Middleware - bodyParser
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Cors for cross origin allowance
+// Middleware - cors (for cross origin allowance)
 const cors = require('cors');
 app.use(cors());
 
 app.use(express.static('dist'));
 
+// Allows us to use environmental variables (to hide personal API key when pushing to Github)
 const dotenv = require('dotenv');
 dotenv.config();
 
 var textapi = new MeaningCloud( {
   key: "process.env.API_KEY"
 });
+
 const baseURL = "https://api.meaningcloud.com/sentiment-2.1?key=";
 
 console.log(__dirname);
@@ -40,6 +44,7 @@ app.listen(8081, function () {
 //     res.send(mockAPIResponse)
 // })
 
+// Post request to get data from the API 
 app.post("/test", async(req,res) => {
   console.log(req.body.formURL);
   const apiData = await fetch(baseURL+process.env.API_KEY+'&lang=en&txt='+req.body.formURL, {
