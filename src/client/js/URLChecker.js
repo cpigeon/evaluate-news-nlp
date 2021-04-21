@@ -9,7 +9,7 @@ function checkURL(inputText) {
       '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
 
       if (!pattern.test(inputText)) {
-        alert("User did not enter a valid URL")
+        alert("User did not enter a valid URL");
       }
 }
 

@@ -1,10 +1,10 @@
-var path = require('path')
-const express = require('express')
-const mockAPIResponse = require('./mockAPI.js')
+var path = require('path');
+const express = require('express');
+const mockAPIResponse = require('./mockAPI.js');
 const MeaningCloud = require('meaning-cloud');
-const fetch = require('node-fetch')
+const fetch = require('node-fetch');
 
-const app = express()
+const app = express();
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -14,17 +14,17 @@ app.use(bodyParser.json());
 const cors = require('cors');
 app.use(cors());
 
-app.use(express.static('dist'))
+app.use(express.static('dist'));
 
 const dotenv = require('dotenv');
-dotenv.config()
+dotenv.config();
 
-var textapi = new MeaningCloud({
+var textapi = new MeaningCloud( {
   key: "process.env.API_KEY"
 });
 const baseURL = "https://api.meaningcloud.com/sentiment-2.1?key=";
 
-console.log(__dirname)
+console.log(__dirname);
 
 app.get('/', function (req, res) {
     // res.sendFile('dist/index.html')
@@ -41,16 +41,16 @@ app.listen(8081, function () {
 // })
 
 app.post("/test", async(req,res) => {
-  console.log(req.body.formURL)
+  console.log(req.body.formURL);
   const apiData = await fetch(baseURL+process.env.API_KEY+'&lang=en&txt='+req.body.formURL, {
     method: 'POST'
   });
 
   try {
-    const data = await apiData.json()
-    console.log('apiData +++++> ', data)
+    const data = await apiData.json();
+    console.log('apiData +++++> ', data);
     res.send(data);
   } catch (err) {
-    console.log("error", err)
+    console.log("error", err);
   }
 });
